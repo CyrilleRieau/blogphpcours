@@ -10,7 +10,7 @@ if(isset($_POST['pseudo'])
     //On récupère les variables
     $pseudo = $_POST['pseudo'];
     $mdp = $_POST['mdp'];
-    
+
     //On encrypte en md5 ou en sha1 (sha256 c'est mieux)
     $crypt = md5($mdp);
     $crypt2 = sha1($mdp);
@@ -25,5 +25,24 @@ if(isset($_POST['pseudo'])
     fwrite($new_file, $crypt);
     //on ferme le fichier
     fclose($new_file);
+        session_start();
+$_SESSION['user']=$pseudo;
+    echo 'Bien inscrit';
 }
+
+/*
+$file=scandir('utilisateur');
+$user=$_POST['pseudo'];
+$pwd=$_POST['mdp'];
+$crypt=md5($pwd);
+
+foreach($file as $u) {
+    $content = file_get_contents('utilisateur/'.$u);
+    if ($u.'.txt' === $user) {
+        if ($content === $crypt) {
+            echo 'User already created.';
+        }
+    }
+}*/
 ?>
+<a href="index.php">Retour</a>
