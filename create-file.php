@@ -13,8 +13,8 @@ a bien les informations du formulaire
         }
         //On stock les informations du formulaire
         //dans des variables
-        $titre = $_POST['titre'];
-        $contenu = $_POST['contenu'];
+        $titre = htmlspecialchars($_POST['titre']);
+        $contenu = htmlspecialchars($_POST['contenu']);
         //On vérifie si le dossier posts existe
         if(!is_dir('posts')) {
             //si non, on le crée

@@ -5,11 +5,18 @@ pour l'inscrire à notre site.
 L'inscription consistera à stocker dans un fichier
 le mot de passe de l'utilisateur en question, encrypté
 */
-if(isset($_POST['pseudo']) 
-    && isset($_POST['mdp'])){
+if(!isset($_POST['pseudo']) || !isset($_POST['mdp'])) {
+    echo 'Utilisateur inexistant.';
+    exit(1);
+}
+
+if ($_POST['pseudo']=="" && $_POST['mdp']=="") {
+    echo 'Utilisateur ou mot de passe non correct.';
+    exit(1);
+}
     //On récupère les variables
-    $pseudo = $_POST['pseudo'];
-    $mdp = $_POST['mdp'];
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $mdp = htmlspecialchars($_POST['mdp']);
 
     //On encrypte en md5 ou en sha1 (sha256 c'est mieux)
     $crypt = md5($mdp);
@@ -28,7 +35,6 @@ if(isset($_POST['pseudo'])
         session_start();
 $_SESSION['user']=$pseudo;
     echo 'Bien inscrit';
-}
 
 /*
 $file=scandir('utilisateur');

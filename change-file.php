@@ -16,8 +16,8 @@ contenant nom de fichier et contenu
 if(isset($_POST['fichier']) 
         && isset($_POST['contenu'])) {
     //On stock les infos du post dans des variables
-    $fileName = $_POST['fichier'];
-    $content = $_POST['contenu'];
+    $fileName = htmlspecialchars($_POST['fichier']);
+    $content = htmlspecialchars($_POST['contenu']);
     //On vérifie que le fichier existe bien
     if(is_file('posts/'.$fileName)) {
         //On remplace le contenu du fichier comme
@@ -36,7 +36,7 @@ fichier et de son contenu pour le modifier via
 un formulaire et un textarea
 */
 if(isset($_GET['fichier'])) {
-    $file = $_GET['fichier'];
+    $file = htmlspecialchars($_GET['fichier']);
     //On vérifie que le fichier existe bien
     if(is_file('posts/'.$file)) {
         //On affiche son titre et on récupère son

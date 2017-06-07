@@ -1,5 +1,8 @@
 <?php
-if (isset($_SESSION['user'])) {
+session_start();
+if (isset($_SESSION['user'])){
+    echo 'Bonjour '.htmlspecialchars($_SESSION['user']);
+} else {
     ?>
 <form method="POST" action="inscription.php">
 <label>Pseudo</label><input type="text" name="pseudo">
@@ -11,8 +14,6 @@ if (isset($_SESSION['user'])) {
 <label>Mot de passe</label><input type="password" name="mdp">
 <button>Connexion</button>
 </form>
-<?php 
-} else {
-    echo'User not connected'
-;}
+<?php
+} 
 ?>
