@@ -24,3 +24,5 @@ $_SESSION['user']=$pseudo;
     else {
     echo 'Le mot de passe ou l\'utilisateur n\'est pas bon.';
 }
+?>
+<a href="index.php">Retour</a>
