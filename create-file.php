@@ -37,3 +37,4 @@ a bien les informations du formulaire
         //On affiche un petit message de succès
         echo '<p>bravo tu as écrit un fichier</p>';
 ?>
+<a href="index.php">Retour</a>
