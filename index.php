@@ -12,23 +12,22 @@
     <?php
 
 require_once ('header.php');
-if(!is_dir("posts")) {
-    mkdir("posts");
-    };
+if (!is_dir("posts")){
+mkdir("posts");
+}
 $files = scandir("posts");
-    if (isset($files)){
-        foreach($files as $file) {
-            if (is_dir($file)) {
-                continue;
-            }
-            echo '<h2>'.basename($file, ".txt").'</h2>';
-            $content = file_get_contents('posts/'.$file);
-            echo '<p>'.$content.'</p>';
-            echo '<form method="post" action="delete-file.php"><input type="hidden" name="fichier" value="' . $file . '"><button>Supprimer</button></form>';
-            echo '<a href="change-file.php?fichier='
-                    .$file.'">Modifier</a>';
+    foreach($files as $file) {
+        if (is_dir($file)) {
+            continue;
         }
+        echo '<h2>'.basename($file, ".txt").'</h2>';
+        $content = file_get_contents('posts/'.$file);
+        echo '<p>'.$content.'</p>';
+        echo '<form method="post" action="delete-file.php"><input type="hidden" name="fichier" value="' . $file . '"><button>Supprimer</button></form>';
+        echo '<a href="change-file.php?fichier='
+                .$file.'">Modifier</a>';
     }
+    
     /*
     $variable = 'blou';
     echo '<br/>';
