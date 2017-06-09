@@ -14,6 +14,9 @@ if (isset($_SESSION['user'])){
 <label>Mot de passe</label><input type="password" name="mdp">
 <button>Connexion</button>
 </form>
+<form method="POST" action="logout.php">
+<button>Deconnexion</button>
+</form>
 <?php
 } 
 ?>
