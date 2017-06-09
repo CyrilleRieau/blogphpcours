@@ -28,12 +28,6 @@ $files = scandir("posts");
                 .$file.'">Modifier</a>';
     }
     
-    /*
-    $variable = 'blou';
-    echo '<br/>';
-    echo md5($variable);
-    echo '<br/>';
-    echo md5($variable);
-    */?>
+?>
 </body>
 </html>
